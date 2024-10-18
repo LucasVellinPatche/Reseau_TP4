@@ -1,6 +1,5 @@
 import socket
 from re import search
-from subprocess import check_output
 
 host = '10.1.1.1'
 port = 13337
