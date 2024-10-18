@@ -9,8 +9,8 @@ try:
     print(f"Connecté avec succès au serveur {host} sur le port {port}")
 except:
     print("Ça marche pas chef, ça se co pas, déso.")
-msg = input("Que veux-tu envoyer au serveur : ")
-s.sendall(msg.encode)
+msg = input("Que veux-tu envoyer au serveur : ").encode
+s.sendall(msg)
 data = s.recv(1024)
 s.close()
 print(f"Le serveur a répondu {repr(data)}")
