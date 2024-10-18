@@ -17,7 +17,7 @@ try:
         s.close()
         print(f"Le serveur a répondu {repr(data)}")
     else:
-        raise TypeError("Ici on veut que des strings !")
+        raise ValueError("Ici on veut du félin #meow !(ou on tolère les chiens #waf)")
 except Exception as e:
     print("On dirait qu'il y a eu un soucis, déso.")
     print(f"L'erreur native est : {e}")
