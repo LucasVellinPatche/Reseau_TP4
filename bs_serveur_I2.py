@@ -14,10 +14,7 @@ while True:
     try:
         data = conn.recv(1024)
         if not data: break
-        ##clientName = socket.gethostname()
-        ##ipClient = socket.gethostbyname(clientName)
-        ips = check_output(['hostname', '--all-ip-addresses'])
-        print(f"Un client vient de se co et son IP c'est {ips}.")
+        print(f"Un client vient de se co et son IP c'est {addr[0]}.")
         print(f"Données reçues du client : {data}")
         if search(".*meow.*", str(data)):
             conn.sendall(b"Meo a toi confrere.")
