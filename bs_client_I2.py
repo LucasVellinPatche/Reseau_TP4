@@ -7,9 +7,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 try:
     s.connect((host, port))
     print(f"Connecté avec succès au serveur {host} sur le port {port}")
-    msg = input("Que veux-tu envoyer au serveur : ")
-    msg.encode
-    s.sendall(msg)
+    s.sendall(input("Que veux-tu envoyer au serveur : "))
     data = s.recv(1024)
     s.close()
     print(f"Le serveur a répondu {repr(data)}")
