@@ -10,7 +10,7 @@ try:
 except:
     print("Ça marche pas chef, ça se co pas, déso.")
 msg = input("Que veux-tu envoyer au serveur : ")
-s.sendall(b'' + msg)
+s.sendall(msg.encode)
 data = s.recv(1024)
 s.close()
 print(f"Le serveur a répondu {repr(data)}")
