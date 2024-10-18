@@ -17,9 +17,9 @@ while True:
         ipClient = socket.gethostbyname(clientName)
         print(f"Un client vient de se co et son IP c'est {ipClient}.")
         print(f"Données reçues du client : {data}")
-        if search(".*meow.*", data):
+        if search(".*meow.*", str(data)):
             conn.sendall(b"Meo a toi confrere.")
-        elif search(".*waf.*", data):
+        elif search(".*waf.*", str(data)):
             conn.sendall(b"ptdr t ki")
         else:
             conn.sendall(b"Mes respects humble humain.")
