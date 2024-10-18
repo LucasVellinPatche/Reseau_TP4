@@ -13,6 +13,7 @@ try:
     data = s.recv(1024)
     s.close()
     print(f"Le serveur a répondu {repr(data)}")
-except:
-    print("Ça marche pas chef, ça se co pas, déso.")
+except Exception as e:
+    print("On dirait qu'il y a eu un soucis, déso.")
+    print(f"L'erreur native est : {e.message}")
 exit(0)
