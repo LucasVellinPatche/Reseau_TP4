@@ -11,8 +11,8 @@ try:
     msg.encode
     s.sendall(msg)
     data = s.recv(1024)
+    s.close()
+    print(f"Le serveur a répondu {repr(data)}")
 except:
     print("Ça marche pas chef, ça se co pas, déso.")
-s.close()
-print(f"Le serveur a répondu {repr(data)}")
 exit(0)
