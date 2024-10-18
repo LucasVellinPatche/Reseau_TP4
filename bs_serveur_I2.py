@@ -1,5 +1,6 @@
 import socket
 from re import search
+from subprocess import check_output
 
 host = '10.1.1.1'
 port = 13337
@@ -13,9 +14,10 @@ while True:
     try:
         data = conn.recv(1024)
         if not data: break
-        clientName = socket.gethostname()
-        ipClient = socket.gethostbyname(clientName)
-        print(f"Un client vient de se co et son IP c'est {ipClient}.")
+        ##clientName = socket.gethostname()
+        ##ipClient = socket.gethostbyname(clientName)
+        ips = check_output(['hostname', '--all-ip-addresses'])
+        print(f"Un client vient de se co et son IP c'est {ips}.")
         print(f"Données reçues du client : {data}")
         if search(".*meow.*", str(data)):
             conn.sendall(b"Meo a toi confrere.")
