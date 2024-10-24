@@ -11,16 +11,13 @@ arg = def_args.parse_args()
 port = arg.port
 host = arg.listen
 
-try:
-    search("[0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9]", host)
+if search("[0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9]", host):
     ip_number = ""
     for byte in host.split("."):
         section_ip = int(byte)
-        try:
-            (section_ip < 255)
-        except:
+        if (section_ip < 255) == False:
             raise ValueError(f"ERROR -l argument invalide. L'adresse {host} n'est pas une adresse IP valide.")
-except:
+else:
     raise ValueError(f"ERROR -l argument invalide. L'adresse {host} n'est pas une adresse IP valide.")
 
     #if (port_def.port < 0) or (port_def.port > 65535):
