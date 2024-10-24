@@ -21,16 +21,17 @@ try:
 except:
     raise ValueError(f"ERROR -l argument invalide. L'adresse {host} n'est pas une adresse IP valide.")
 
-try:
-    port_def = def_args_port.parse_args()
-    port = port_def.port
-except:
-    if (port_def.port < 0) or (port_def.port > 65535):
-        raise ValueError(f"ERROR -p argument invalide. Le port spécifié {port_def.port} n'est pas un port valide (de 0 à 65535).")
-    elif port.port < 1025:
-        raise ValueError(f"ERROR -p argument invalide. Le port spécifié {port_def.port} est un port privilégié. Spécifiez un port au dessus de 1024.")
-    else:
-        raise TypeError("Le paramètre rentré en port n'est pas valide !")
+
+port_def = def_args_port.parse_args()
+port = port_def.port
+
+    #if (port_def.port < 0) or (port_def.port > 65535):
+    #    raise ValueError(f"ERROR -p argument invalide. Le port spécifié {port_def.port} n'est pas un port valide (de 0 à 65535).")
+    #elif port.port < 1025:
+    #    raise ValueError(f"ERROR -p argument invalide. Le port spécifié {port_def.port} est un port privilégié. Spécifiez un port au dessus de 1024.")
+    #else:
+    #    raise TypeError("Le paramètre rentré en port n'est pas valide !")
+
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((host, port))  
