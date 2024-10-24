@@ -2,16 +2,14 @@ import socket
 from re import search
 import argparse
 
-def_args_port = argparse.ArgumentParser()
-def_args_port.add_argument("-p", "--port", type=int, nargs="?", default=13337) #choices=range(1024, 65535), 
-def_args_host = argparse.ArgumentParser()
-def_args_host.add_argument("-l", "--listen", type=str, nargs="?", default="localhost")
+def_args = argparse.ArgumentParser()
+def_args.add_argument("-p", "--port", type=int, choices=range(1024, 65535), nargs="?", default=13337)
+def_args.add_argument("-l", "--listen", type=str, nargs="?", default="localhost")
 
 
-port_def = def_args_port.parse_args()
-port = port_def.port
-host_def = def_args_host.parse_args()
-host = host_def.listen
+arg = def_args.parse_args()
+port = arg.port
+host = arg.listen
 
 try:
     search("[0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9]", host)
