@@ -3,7 +3,7 @@ from re import search
 import argparse
 
 def_args_port = argparse.ArgumentParser()
-def_args_port.add_argument("-p", "--port", type=int, choices=range(1024, 65535), nargs="?", default=13337)
+def_args_port.add_argument("-p", "--port", type=int, nargs="?", default=13337) #choices=range(1024, 65535), 
 def_args_host = argparse.ArgumentParser()
 def_args_host.add_argument("-l", "--listen", type=str, nargs="?", default="localhost")
 
