@@ -11,7 +11,7 @@ host = def_args_host.parse_args
 try:
     search("[0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9]", str(host))
     ip_number = ""
-    for byte in host.split("."):
+    for byte in str(host).split("."):
         section_ip = int(byte)
         try:
             (section_ip < 255)
