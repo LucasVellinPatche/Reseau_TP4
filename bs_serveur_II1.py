@@ -2,13 +2,17 @@ import socket
 from re import search
 import argparse
 
-def_args_host = argparse.ArgumentParser()
-def_args_host.add_argument("-l", "--listen", type=str, nargs="?", default="localhost")
 def_args_port = argparse.ArgumentParser()
 def_args_port.add_argument("-p", "--port", type=int, choices=range(1024, 65535), nargs="?", default=13337)
+def_args_host = argparse.ArgumentParser()
+def_args_host.add_argument("-l", "--listen", type=str, nargs="?", default="localhost")
 
+
+port_def = def_args_port.parse_args()
+port = port_def.port
 host_def = def_args_host.parse_args()
 host = host_def.listen
+
 try:
     search("[0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9]", host)
     ip_number = ""
@@ -20,10 +24,6 @@ try:
             raise ValueError(f"ERROR -l argument invalide. L'adresse {host} n'est pas une adresse IP valide.")
 except:
     raise ValueError(f"ERROR -l argument invalide. L'adresse {host} n'est pas une adresse IP valide.")
-
-
-port_def = def_args_port.parse_args()
-port = port_def.port
 
     #if (port_def.port < 0) or (port_def.port > 65535):
     #    raise ValueError(f"ERROR -p argument invalide. Le port spécifié {port_def.port} n'est pas un port valide (de 0 à 65535).")
