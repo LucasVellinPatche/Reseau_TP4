@@ -9,7 +9,7 @@ def_args_port.add_argument("-p", "--port", type=int, choices=range(1024, 65535),
 
 host = def_args_host.parse_args
 try:
-    search("[0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9]", host)
+    search("[0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9]", host.action)
     ip_number = ""
     for byte in host.split("."):
         section_ip = int(byte)
