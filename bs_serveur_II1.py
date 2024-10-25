@@ -1,3 +1,4 @@
+from psutil import net_if_addrs
 import socket
 from re import search
 import argparse
@@ -27,6 +28,18 @@ else:
     #else:
     #    raise TypeError("Le paramètre rentré en port n'est pas valide !")
 
+trouve = 0
+trop_de_trucs = []
+trop_de_trucs = net_if_addrs()
+for i in trop_de_trucs:
+    x = 0
+    for n in trop_de_trucs[i]:
+        if trop_de_trucs[i][x].family == 2:
+            if trop_de_trucs[i][x].address == host:
+                trouve = 1
+        x += 1
+if trouve != 1:
+    raise ValueError(f"ERROR -l argument invalide. L'adresse {host} n'est pas l'une des adresses IP de cette machine.")
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((host, port))  
