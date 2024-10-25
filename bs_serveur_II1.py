@@ -4,8 +4,8 @@ from re import search
 import argparse
 
 def_args = argparse.ArgumentParser()
-def_args.add_argument("-p", "--port", type=int, choices=range(1024, 65535), nargs="?", default=13337)
-def_args.add_argument("-l", "--listen", type=str, nargs="?", default="localhost")
+def_args.add_argument("-p", "--port", type=int, choices=range(1024, 65535), nargs="?", default=13337, help="take the listenning port")
+def_args.add_argument("-l", "--listen", type=str, nargs="?", default="localhost", help="take the serveur ip to listen")
 
 
 arg = def_args.parse_args()
@@ -53,7 +53,7 @@ while True:
         if not data: break
         print(f"Un client vient de se co et son IP c'est {addr[0]}.")
         print(f"Données reçues du client : {data}")
-        if search(".*meow.*", str(data)):
+        if search(".*meo.*", str(data)):
             conn.sendall(b"Meo a toi confrere.")
         elif search(".*waf.*", str(data)):
             conn.sendall(b"ptdr t ki")
