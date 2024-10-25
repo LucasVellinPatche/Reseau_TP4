@@ -4,7 +4,7 @@ from re import search
 import argparse
 
 def_args = argparse.ArgumentParser()
-def_args.add_argument("-p", "--port", type=int, choices=range(1024, 65535), nargs="?", default=13337, help="take the listenning port")
+def_args.add_argument("-p", "--port", type=int, choices=range(1024, 65535), nargs="?", default=13337, help="take the listenning port", metavar='')
 def_args.add_argument("-l", "--listen", type=str, nargs="?", default="localhost", help="take the serveur ip to listen")
 
 
