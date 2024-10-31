@@ -23,3 +23,11 @@ python bs_client_I1.py
 ss -lnpt | grep 13337
 LISTEN 0      1           10.1.1.1:13337      0.0.0.0:*    users:(("python",pid=3125,fd=3))
 ```
+
+## PII2A
+
+```
+sudo mkdir /var/log/bs_server
+cd /var/log/bs_server
+sudo touch bs_server.log
+```

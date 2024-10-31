@@ -35,7 +35,7 @@ logging.basicConfig(level=logging.INFO, datefmt="%Y-%m-%d %H:%M", format="%(asct
 logger = logging.getLogger(__name__)
 console_handler = logging.StreamHandler()
 console_handler.setFormatter(CustomFormatter)
-file_handler = logging.FileHandler(LOG_FILE, encoding="utf-8", filemode="a")
+file_handler = logging.FileHandler(LOG_FILE, encoding="utf-8")
 logger.addHandler(console_handler)
 logger.addHandler(file_handler)
 
