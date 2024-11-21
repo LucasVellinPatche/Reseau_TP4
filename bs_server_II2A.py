@@ -17,7 +17,7 @@ class CustomFormatter(logging.Formatter):
 
     FORMATS = {
         logging.INFO: time + white + level + nc + msg,
-        logging.WARNING: time + yellow + level + nc + msg,
+        logging.WARNING: time + yellow + level + nc + msg
     }
 
     def format(self, record):
