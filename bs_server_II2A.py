@@ -82,7 +82,7 @@ while True:
 
     try:
         data = conn.recv(1024)
-        data = data.decode
+        data = str(data, encoding='utf-8')
         if not data: break
         print(data)
         logger.info(f"Le client {addr[0]} a envoyé {data}.")
