@@ -84,7 +84,7 @@ while True:
         data = conn.recv(1024)
         data = data.decode
         if not data: break
-        print(data)
+        print(type(data))
         logger.info(f"Le client {addr[0]} a envoyé {data}.")
         if search(".*meo.*", data):
             conn.sendall(b"Meo a toi confrere.")
