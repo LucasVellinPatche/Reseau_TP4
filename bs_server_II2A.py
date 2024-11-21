@@ -20,21 +20,15 @@ class CustomFormatter(logging.Formatter):
         logging.WARNING: time + yellow + level + nc + msg,
     }
 
-def format(self, record):
+    def format(self, record):
         log_fmt = self.FORMATS.get(record.levelno)
         formatter = logging.Formatter(log_fmt)
         return formatter.format(record)
 
-if path.isdir("/var/log/bs_server") != True:
-    mkdir("/var/log/bs_server")
-
-if path.isfile(LOG_FILE) != True:
-    log = open(LOG_FILE, "x")
-
 logging.basicConfig(level=logging.INFO, datefmt="%Y-%m-%d %H:%M", format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
 console_handler = logging.StreamHandler()
-console_handler.setFormatter(CustomFormatter)
+console_handler.setFormatter(CustomFormatter())
 file_handler = logging.FileHandler(LOG_FILE, encoding="utf-8")
 logger.addHandler(console_handler)
 logger.addHandler(file_handler)
