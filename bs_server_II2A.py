@@ -30,6 +30,7 @@ logger.setLevel(10)
 console_handler = logging.StreamHandler()
 console_handler.setFormatter(CustomFormatter())
 file_handler = logging.FileHandler(LOG_FILE, encoding="utf-8")
+file_handler.setFormatter(CustomFormatter())
 logger.addHandler(console_handler)
 logger.addHandler(file_handler)
 
