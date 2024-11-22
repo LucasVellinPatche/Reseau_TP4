@@ -32,15 +32,18 @@ port = 13337
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 try:
     s.connect((host, port))
+    logger.info(f"Connexion réussie à {host}:{port}.")
     print(f"Connecté avec succès au serveur {host} sur le port {port}")
     msg = input("Que veux-tu envoyer au serveur : ")
     if type(msg) is not str:
         raise TypeError("Ici on veut que des strings !")
     if search(".*meow.*", msg) or search(".*waf.*", msg):
         s.sendall(msg.encode())
+        logger.info(f"Message envoyé au serveur {host} : {msg}.")
         data = s.recv(1024)
         s.close()
-        print(f"Le serveur a répondu {repr(data)}")
+        print(f"Le serveur a répondu {repr(data.decode())}")
+        logger.info(f"Réponse reçue du serveur {host} : {data.decode()}.")
     else:
         raise ValueError("Ici on veut du félin #meow !(ou on tolère les chiens #waf)")
 except Exception as e:
