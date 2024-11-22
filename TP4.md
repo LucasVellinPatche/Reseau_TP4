@@ -31,3 +31,11 @@ sudo mkdir /var/log/bs_server
 cd /var/log/bs_server
 sudo touch bs_server.log
 ```
+
+## PII2B
+
+```
+sudo mkdir /var/log/bs_client
+cd /var/log/bs_client
+sudo touch bs_client.log
+```

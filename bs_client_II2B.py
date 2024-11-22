@@ -3,7 +3,7 @@ from sys import exit
 from re import search
 import logging
 
-LOG_FILE = "/var/log/bs_server/bs_server.log"
+LOG_FILE = "/var/log/bs_client/bs_client.log"
 
 logging.basicConfig(level=logging.WARN, datefmt="%Y-%m-%d %H:%M", format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
