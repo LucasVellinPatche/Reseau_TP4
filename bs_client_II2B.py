@@ -11,7 +11,7 @@ class CustomFormatter(logging.Formatter):
     format = "%(asctime)s %(levelname)s %(message)s"
 
     FORMATS = {
-        logging.ERROR: red + format
+        logging.ERROR: red + format + nc
     }
 
     def format(self, record):
@@ -22,6 +22,7 @@ class CustomFormatter(logging.Formatter):
 logging.basicConfig(level=logging.WARN, datefmt="%Y-%m-%d %H:%M", format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
 console_handler = logging.StreamHandler()
+console_handler.setFormatter(CustomFormatter())
 file_handler = logging.FileHandler(LOG_FILE, encoding="utf-8")
 logger.addHandler(console_handler)
 logger.addHandler(file_handler)
