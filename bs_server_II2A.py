@@ -8,9 +8,9 @@ import logging
 LOG_FILE = "/var/log/bs_server/bs_server.log"
 
 class CustomFormatter(logging.Formatter):
-    white = "\e[97m"
-    yellow = "\e[93m"
-    nc = "\e[0m"
+    white = "\x1b[97m"
+    yellow = "\x1b[93m"
+    nc = "\x1b[0m"
     time = "%(asctime)s"
     level = "%(levelname)s"
     msg = "%(message)s"
