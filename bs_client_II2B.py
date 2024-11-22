@@ -21,6 +21,7 @@ class CustomFormatter(logging.Formatter):
         return formatter.format(record)
 
 logger = logging.getLogger(__name__)
+logger.setLevel(10)
 console_handler = logging.StreamHandler()
 console_handler.setLevel(40)
 console_handler.setFormatter(CustomFormatter())
