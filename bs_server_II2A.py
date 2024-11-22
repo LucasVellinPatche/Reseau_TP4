@@ -25,8 +25,8 @@ class CustomFormatter(logging.Formatter):
         formatter = logging.Formatter(log_fmt)
         return formatter.format(record)
 
-##logging.basicConfig(level=logging.INFO, datefmt="%Y-%m-%d %H:%M", format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
+logger.setLevel(10)
 console_handler = logging.StreamHandler()
 console_handler.setFormatter(CustomFormatter())
 file_handler = logging.FileHandler(LOG_FILE, encoding="utf-8")
