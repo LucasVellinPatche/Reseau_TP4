@@ -5,6 +5,20 @@ import logging
 
 LOG_FILE = "/var/log/bs_client/bs_client.log"
 
+class CustomFormatter(logging.Formatter):
+    red = "\x1b[31;20m"
+    nc = "\x1b[0m"
+    format = "%(asctime)s %(levelname)s %(message)s"
+
+    FORMATS = {
+        logging.ERROR: red + format
+    }
+
+    def format(self, record):
+        log_fmt = self.FORMATS.get(record.levelno)
+        formatter = logging.Formatter(log_fmt)
+        return formatter.format(record)
+
 logging.basicConfig(level=logging.WARN, datefmt="%Y-%m-%d %H:%M", format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
 console_handler = logging.StreamHandler()
