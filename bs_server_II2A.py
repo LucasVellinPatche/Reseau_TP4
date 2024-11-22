@@ -11,7 +11,7 @@ class CustomFormatter(logging.Formatter):
     white = "\x1b[97m"
     yellow = "\x1b[93m"
     nc = "\x1b[0m"
-    time = "%Y-%m-%d %H:%M "
+    time = "%(asctime)s "
     level = "%(levelname)s"
     msg = " %(message)s"
 
