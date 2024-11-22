@@ -44,7 +44,6 @@ port = arg.port
 host = arg.listen
 
 if search("[0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9][.][0-9]?[0-9]?[0-9]", host):
-    ip_number = ""
     for byte in host.split("."):
         section_ip = int(byte)
         if (section_ip < 255) == False:
