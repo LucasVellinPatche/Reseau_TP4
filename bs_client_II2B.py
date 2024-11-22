@@ -11,6 +11,7 @@ class CustomFormatter(logging.Formatter):
     format = "%(asctime)s %(levelname)s %(message)s"
 
     FORMATS = {
+        logging.INFO: format,
         logging.ERROR: red + format + nc
     }
 
@@ -24,7 +25,8 @@ console_handler = logging.StreamHandler()
 console_handler.setLevel(40)
 console_handler.setFormatter(CustomFormatter())
 file_handler = logging.FileHandler(LOG_FILE, encoding="utf-8")
-file_handler.setLevel(0)
+file_handler.setLevel(10)
+file_handler.setFormatter(CustomFormatter())
 logger.addHandler(console_handler)
 logger.addHandler(file_handler)
 
